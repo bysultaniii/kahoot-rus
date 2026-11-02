@@ -1,0 +1,53 @@
+@import '@fontsource-variable/nunito';
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Nunito Variable', ui-sans-serif, system-ui, sans-serif;
+  --color-cream: #f5f1ea;
+  --color-surface: #fffdf9;
+  --color-ink: #3b4048;
+  --color-muted: #868b93;
+  --color-line: #e7e1d7;
+  --color-primary: #6f9e8f;
+  --color-primary-dark: #4f7e70;
+}
+
+/* Один размер шрифта задаёт масштаб всего интерфейса: на проекторе крупнее, на ноутбуке компактнее */
+html {
+  font-size: clamp(14px, 0.9vw + 0.6vh, 24px);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+@layer base {
+  button {
+    cursor: pointer;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-primary) 60%, transparent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
